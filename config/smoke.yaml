@@ -1,0 +1,15 @@
+# Quick sanity check: runs in seconds. Used by CI.
+name: smoke
+uri: ws://127.0.0.1:8765
+connections: 10
+messages_per_connection: 10
+message_size: 64          # bytes of padding per message
+ramp_up_s: 0              # spread connection starts over N seconds
+think_time_s: 0           # pause between messages per user
+connect_timeout_s: 10
+response_timeout_s: 5
+
+thresholds:
+  max_p95_ms: 200
+  max_error_rate: 0.0     # 0.0 = no failures allowed
+  min_throughput: 50      # successful messages per second

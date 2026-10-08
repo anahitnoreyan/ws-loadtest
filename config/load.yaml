@@ -1,0 +1,14 @@
+# Realistic load: 500 users ramping up over 10 seconds.
+name: load
+uri: ws://127.0.0.1:8765
+connections: 500
+messages_per_connection: 100
+message_size: 256
+ramp_up_s: 10
+think_time_s: 0.05
+connect_timeout_s: 10
+response_timeout_s: 5
+
+thresholds:
+  max_p95_ms: 250
+  max_error_rate: 0.01    # max 1% failed messages
